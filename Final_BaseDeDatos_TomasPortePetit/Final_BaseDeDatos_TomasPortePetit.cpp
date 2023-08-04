@@ -240,8 +240,8 @@ void InsertData()
 	}
 
 
-	string destinyValue = "INSERT INTO actualDestiny(IdUser, IdDestiny) VALUE('" + to_string(totalUsers) + "', '" + to_string(destiny) + "')";
-	string transportValue = "INSERT INTO lastTransportUsed(IdUser, IdTransport) VALUE('" + to_string(totalUsers) + "', '" + to_string(transport) + "')";
+	string destinyValue = "INSERT INTO actualDestiny(IdUsers, IdDestiny) VALUE('" + to_string(totalUsers) + "', '" + to_string(destiny) + "')";
+	string transportValue = "INSERT INTO lastTransportUsed(IdUsers, IdTransport) VALUE('" + to_string(totalUsers) + "', '" + to_string(transport) + "')";
 
 	state = mysql_query(connection, destinyValue.c_str());
 	state = mysql_query(connection, transportValue.c_str());
@@ -336,8 +336,8 @@ void DeleteUser()
 	}
 
 	string userData = "DELETE FROM USERS WHERE dni = " + to_string(dni);
-	string destinyData = "DELETE FROM actualDestiny WHERE IdUser = " + to_string(id);
-	string transportData = "DELETE FROM lastTransportUsed WHERE IdUser = " + to_string(id);
+	string destinyData = "DELETE FROM actualDestiny WHERE IdUsers = " + to_string(id);
+	string transportData = "DELETE FROM lastTransportUsed WHERE IdUsers = " + to_string(id);
 
 	state = mysql_query(connection, userData.c_str());
 	state = mysql_query(connection, destinyData.c_str());
